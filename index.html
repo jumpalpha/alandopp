@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alan Dopp</title>
+<meta name="description" content="Alan Dopp: husband, dad of seven and grandpa in Idaho Falls, Idaho.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;800;900&family=Instrument+Sans:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout idea: a night sky over Idaho — a constellation as the hero, every section an "orbit" around the circumpunct */
+  --night:#0a0c18;
+  --night-2:#12152a;
+  --ink:#ebe7dc;
+  --muted:#9097b3;
+  --betelgeuse:#ff7a45;   /* the red shoulder: accent */
+  --rigel:#a9c8ff;        /* the blue foot: secondary */
+  --gold:#f1c75b;
+  --line:rgba(169,200,255,.16);
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:10;background:rgba(10,12,24,.78);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:.06em}
+.brand svg{width:26px;height:26px}
+nav ul{display:flex;gap:clamp(12px,3vw,28px);list-style:none;margin:0;padding:0}
+nav ul a{text-decoration:none;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+nav ul a:hover{color:var(--ink)}
+@media (max-width:560px){nav ul li:nth-child(n+3){display:none}}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+#sky{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:end;min-height:min(640px,82vh);padding-top:72px;padding-bottom:56px;pointer-events:none}
+.hero .wrap > *{pointer-events:auto}
+.kicker{display:flex;gap:10px;align-items:center;margin-bottom:18px}
+.kicker .dot{width:8px;height:8px;border-radius:50%;background:var(--betelgeuse);box-shadow:0 0 12px var(--betelgeuse)}
+h1{font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.84;letter-spacing:.01em;margin:0;font-size:clamp(76px,15vw,184px)}
+h1 .alt{display:block;font-weight:500;font-size:.32em;letter-spacing:.32em;color:var(--rigel);margin-top:.5em;line-height:1.1}
+h1 .alt b{color:var(--betelgeuse);font-weight:800}
+.lede{max-width:34ch;font-size:clamp(18px,2vw,21px);color:#cfd3e6;margin:26px 0 0}
+.coords{align-self:end;justify-self:end;text-align:right;display:grid;gap:6px}
+.coords .row{display:flex;gap:14px;justify-content:flex-end;font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.coords .row b{color:var(--ink);font-weight:600}
+.throw{margin-top:12px;justify-self:end;background:none;border:1px solid var(--line);color:var(--gold);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:9px 14px;border-radius:999px;cursor:pointer}
+.throw:hover{border-color:var(--gold)}
+@media (max-width:820px){.hero .wrap{grid-template-columns:1fr}.coords{justify-self:start;text-align:left}.coords .row{justify-content:flex-start}.throw{justify-self:start}}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+.stat{padding:28px clamp(16px,3vw,32px);border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat .n{font-family:var(--display);font-weight:800;font-size:clamp(40px,5vw,60px);line-height:1;font-variant-numeric:tabular-nums}
+.stat:nth-child(1) .n{color:var(--betelgeuse)}
+.stat:nth-child(3) .n{color:var(--rigel)}
+.stat .l{margin-top:8px}
+@media (max-width:560px){.stats{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid var(--line)}}
+
+/* SECTIONS */
+section{padding:clamp(64px,9vw,112px) 0;border-bottom:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:baseline;margin-bottom:40px}
+.sec-head h2{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(40px,6vw,72px);line-height:.95;margin:0;text-wrap:balance}
+@media (max-width:720px){.sec-head{grid-template-columns:1fr;gap:8px}}
+
+.about{display:grid;grid-template-columns:200px 1fr;gap:24px}
+.portrait{margin:0;position:relative;width:200px;height:200px;align-self:start}
+.portrait::before{content:"";position:absolute;inset:-12px;border:1.5px solid var(--gold);border-radius:50%;opacity:.7}
+.portrait::after{content:"";position:absolute;width:12px;height:12px;border-radius:50%;background:var(--betelgeuse);box-shadow:0 0 14px var(--betelgeuse);top:50%;right:-18px;transform:translateY(-50%)}
+.portrait img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;filter:saturate(.95) contrast(1.03)}
+@media (max-width:720px){.portrait{width:160px;height:160px;margin:12px 0 18px 12px}}
+.about p{max-width:62ch;margin:0 0 1em;font-size:19px;color:#d9dcea}
+.about p:first-child::first-letter{font-family:var(--display);font-weight:900;font-size:3.4em;float:left;line-height:.8;margin:.06em .1em 0 0;color:var(--gold)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.tags span{font-family:var(--mono);font-size:12px;padding:6px 11px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+@media (max-width:720px){.about{grid-template-columns:1fr}}
+
+/* SPEAKING */
+.speak{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(24px,5vw,56px);align-items:start}
+.topics{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.topics li{display:grid;grid-template-columns:64px 1fr;gap:18px;padding:24px 0;border-top:1px solid var(--line)}
+.topics li:last-child{border-bottom:1px solid var(--line)}
+.tn{font-family:var(--display);font-weight:900;font-size:44px;line-height:.9;color:var(--betelgeuse)}
+.topics h3{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(26px,3vw,34px);line-height:1;margin:0 0 8px;letter-spacing:.02em;text-wrap:balance}
+.topics p{margin:0;color:#c9cde0;max-width:52ch}
+.booking{border:1px solid var(--line);border-radius:16px;padding:28px;background:linear-gradient(160deg,rgba(241,199,91,.07),transparent 60%),var(--night-2);position:sticky;top:84px}
+.duo{font-size:20px;line-height:1.45;margin:0 0 22px;color:var(--ink)}
+.ring2{display:inline-flex;margin-right:10px;vertical-align:-6px}
+.ring2 i{width:24px;height:24px;border-radius:50%;border:2px solid var(--gold);display:block}
+.ring2 i+i{margin-left:-9px;border-color:var(--betelgeuse)}
+.booking dl{margin:0 0 24px;display:grid;gap:14px}
+.booking dd{margin:4px 0 0;font-size:17px}
+.booking dl div:first-child dd{font-family:var(--display);font-weight:800;font-size:30px;text-transform:uppercase;color:var(--gold);letter-spacing:.03em}
+.book{display:inline-block;text-decoration:none;background:var(--gold);color:var(--night);font-family:var(--mono);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:13px 20px;border-radius:999px}
+.book:hover{background:var(--ink)}
+@media (max-width:820px){.speak{grid-template-columns:1fr}.booking{position:static}}
+/* ORBITS */
+.orbits{display:grid;gap:0}
+.orbit{display:grid;grid-template-columns:64px 200px 1fr auto;gap:24px;align-items:center;padding:26px 0;border-top:1px solid var(--line);text-decoration:none;transition:background .2s}
+.orbit:last-child{border-bottom:1px solid var(--line)}
+a.orbit:hover{background:linear-gradient(90deg,rgba(241,199,91,.06),transparent 70%)}
+.ring{width:48px;height:48px}
+.orbit h3{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:30px;line-height:1;margin:0;letter-spacing:.02em}
+.orbit p{margin:0;color:#c3c8dc;max-width:58ch}
+.status{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:999px;white-space:nowrap}
+.status.live{color:#0a0c18;background:var(--gold)}
+.status.build{color:var(--rigel);border:1px solid rgba(169,200,255,.4)}
+.status.role{color:var(--betelgeuse);border:1px solid rgba(255,122,69,.45)}
+@media (max-width:820px){.orbit{grid-template-columns:48px 1fr;gap:6px 16px}.orbit .ring{grid-row:span 3}.orbit .status{justify-self:start}}
+
+/* FIELD */
+.field{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(24px,5vw,64px);align-items:center}
+.field p{max-width:52ch;color:#d1d5e6;font-size:18px}
+.field .big{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(48px,7vw,92px);line-height:.9;margin:0 0 18px}
+.field .big em{font-style:normal;color:var(--gold)}
+#arc{margin-top:28px;width:100%;height:auto;aspect-ratio:5/3;display:block;border:1px solid var(--line);border-radius:14px;background:radial-gradient(120% 90% at 20% 100%,#1b2142,var(--night-2))}
+.events{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.events div{border-left:2px solid var(--betelgeuse);padding:2px 0 2px 12px}
+.events b{display:block;font-family:var(--display);font-size:24px;text-transform:uppercase;letter-spacing:.03em}
+@media (max-width:820px){.field{grid-template-columns:1fr}}
+
+/* PHOTOS */
+.shot{margin:0;position:relative;overflow:hidden;border-radius:14px;border:1px solid var(--line);background:var(--night-2)}
+.shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.shot:hover img{transform:scale(1.03)}
+.shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 16px 12px;background:linear-gradient(transparent,rgba(10,12,24,.88));font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);display:flex;justify-content:space-between;gap:12px}
+.shot figcaption span{color:var(--muted)}
+.shot.tall{aspect-ratio:1/1}
+.mosaic{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}.mosaic .shot{aspect-ratio:4/5}
+.family-wide{margin-top:48px;aspect-ratio:3/2;max-height:620px;width:100%}
+@media (max-width:720px){.mosaic{grid-template-columns:1fr}.mosaic .shot{aspect-ratio:4/3}}
+.thumb{border-radius:50%;object-fit:cover;outline:1.5px solid var(--betelgeuse);outline-offset:3px}
+/* CURIOSITIES */
+.curio{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px);align-items:center}
+#tri{width:100%;max-width:440px;aspect-ratio:1/0.9;display:block;margin:0 auto}
+.curio ul{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.curio li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:18px}
+.curio li span:last-child{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:right}
+.curio .note{color:var(--muted);font-size:15px;margin-top:18px;max-width:46ch}
+@media (max-width:820px){.curio{grid-template-columns:1fr}}
+
+/* CONTACT */
+.contact{text-align:left}
+.contact .big{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(56px,10vw,128px);line-height:.88;margin:0}
+.contact .big span{color:var(--betelgeuse)}
+.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.links a{text-decoration:none;font-family:var(--mono);font-size:13px;letter-spacing:.06em;padding:12px 18px;border:1px solid var(--line);border-radius:999px}
+.links a:hover{border-color:var(--gold);color:var(--gold)}
+footer{padding:28px 0 40px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Alan Dopp, home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="none" stroke="#f1c75b" stroke-width="2"/><circle cx="16" cy="16" r="3.2" fill="#ff7a45"/></svg>
+      ALAN DOPP
+    </a>
+    <ul>
+      <li><a href="#family">Family</a></li>
+      <li><a href="#speaking">Speaking</a></li>
+      <li><a href="#orbits">Projects</a></li>
+      <li><a href="#field">The Field</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div>
+      <div class="kicker"><span class="dot"></span><span class="mono">Idaho Falls, Idaho · Family first</span></div>
+      <h1>Alan<br>Dopp<span class="alt">Husband · Dad · <b>Grandpa</b></span></h1>
+      <p class="lede">My life is about my family. Teaching, coaching and building are things I do along the way.</p>
+    </div>
+    <div class="coords" aria-label="Star coordinates">
+      <div class="row">Betelgeuse <b>05h 55m · +07° 24′</b></div>
+      <div class="row">Bellatrix <b>05h 25m · +06° 21′</b></div>
+      <div class="row">Belt <b>Alnitak · Alnilam · Mintaka</b></div>
+      <div class="row">Rigel <b>05h 14m · −08° 12′</b></div>
+      <button class="throw" id="throwBtn" type="button">↗ Throw a javelin</button>
+    </div>
+  </div>
+</header>
+
+<div class="stats" role="list">
+  <div class="stat" role="listitem"><div class="n">7</div><div class="l mono">Children, plus grandkids</div></div>
+  <div class="stat" role="listitem"><div class="n">1912</div><div class="l mono">Year The Burland was built</div></div>
+  <div class="stat" role="listitem"><div class="n">1997</div><div class="l mono">Started teaching</div></div>
+</div>
+
+<main>
+<section id="family">
+  <div class="wrap">
+    <div class="sec-head"><span class="mono">01 · Family</span><h2>Family first</h2></div>
+    <div class="about">
+      <figure class="portrait"><img src="alan.jpg" alt="Alan Dopp" width="640" height="640"></figure>
+      <div>
+        <p>My life is about my family. I'm a husband, a dad of seven and a grandpa, and the best things I've ever been part of are the people around our table. Everything else I do grows out of that.</p>
+        <p>For work, I've taught health at Thunder Ridge High School since 1997, and I coach javelin. On the side I'm restoring a 1912 event hall in St. Anthony and writing a book. Faith keeps all of it pointed the right way.</p>
+        <div class="tags">
+          <span>Family</span><span>Faith</span><span>Grandkids</span><span>Javelin</span><span>Historic restoration</span><span>Teaching</span><span>Astronomy</span>
+        </div>
+      </div>
+    </div>
+    <figure class="shot family-wide"><img src="family.jpg" alt="The Dopp family gathered on a grassy hill below wind turbines" loading="lazy"><figcaption>The whole crew, under the wind turbines</figcaption></figure>
+  </div>
+</section>
+
+<section id="speaking">
+  <div class="wrap">
+    <div class="sec-head"><span class="mono">02 · Speaking</span><h2>Hard-won lessons, shared together</h2></div>
+    <div class="speak">
+      <ol class="topics">
+        <li>
+          <span class="tn">01</span>
+          <div><h3>Overcoming impossible family trials</h3>
+          <p>How faith and careful planning carry a family through the trials that look impossible from the inside.</p></div>
+        </li>
+        <li>
+          <span class="tn">02</span>
+          <div><h3>Raising successful children</h3>
+          <p>What it takes to be a great parent, and how to raise kids who grow into capable, happy, successful adults.</p></div>
+        </li>
+        <li>
+          <span class="tn">03</span>
+          <div><h3>Being a good person, and teaching it</h3>
+          <p>Simple, practical ways to live as a good person, and how to pass that on to your children, students and community.</p></div>
+        </li>
+      </ol>
+      <aside class="booking">
+        <p class="duo"><span class="ring2" aria-hidden="true"><i></i><i></i></span>I prefer to speak with my wife, my partner in crime. You get both sides of the story.</p>
+        <dl>
+          <div><dt class="mono">Fees</dt><dd>Negotiable</dd></div>
+          <div><dt class="mono">Good fit for</dt><dd>Firesides, parenting and family events, youth conferences, schools, community groups</dd></div>
+        </dl>
+        <a class="book" href="#contact">Ask about booking</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="orbits">
+  <div class="wrap">
+    <div class="sec-head"><span class="mono">03 · Projects</span><h2>Things in orbit</h2></div>
+    <div class="orbits">
+      <a class="orbit" href="https://doppsclass.com">
+        <svg class="ring" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="none" stroke="#f1c75b" stroke-width="1.5"/><circle cx="24" cy="24" r="4" fill="#f1c75b"/><circle cx="44" cy="24" r="3" fill="#ebe7dc"/></svg>
+        <h3>doppsclass.com</h3>
+        <p>My health class rebuilt as a quest: chapter readers and podcasts, an arcade, XP and badges, and a Weight Control Quest where students survive on an island with 15 foods.</p>
+        <span class="status live">Live</span>
+      </a>
+      <a class="orbit" href="https://theburland.com">
+        <img class="ring thumb" src="burland.jpg" alt="" loading="lazy">
+        <h3>The Burland</h3>
+        <p>A 1912 event venue in St. Anthony, Idaho, being brought back to life for weddings, reunions and community gatherings.</p>
+        <span class="status live">Live</span>
+      </a>
+      <div class="orbit">
+        <svg class="ring" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="none" stroke="#a9c8ff" stroke-width="1.5" stroke-dasharray="3 4"/><circle cx="24" cy="24" r="4" fill="#a9c8ff"/></svg>
+        <h3>The Circumpunct</h3>
+        <p>A book in progress about the point within the circle: unity, multiplicity, absence and restoration, told through geometry and the Sierpiński triangle.</p>
+        <span class="status build">Writing</span>
+      </div>
+      <div class="orbit">
+        <svg class="ring" viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="6" width="36" height="36" fill="none" stroke="#a9c8ff" stroke-width="1.5" stroke-dasharray="3 4"/><rect x="20" y="20" width="8" height="8" fill="#a9c8ff"/></svg>
+        <h3>Bedrock</h3>
+        <p>An Earth science course built like a survival game: 28 chapters across nine realms, from Spawn Point to Beyond Bedrock.</p>
+        <span class="status build">In the works</span>
+      </div>
+      <a class="orbit" href="https://claude.ai/artifact/VQLcg8AgCA6R759Zxmwd75" rel="noopener">
+        <svg class="ring" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="none" stroke="#ff7a45" stroke-width="1.5"/><path d="M12 30 L24 18 L36 30" fill="none" stroke="#f1c75b" stroke-width="1.5"/><circle cx="24" cy="24" r="3" fill="#ff7a45"/></svg>
+        <h3>Family Plan</h3>
+        <p>A living plan for our family's next ten years: paying off debt, building homes on shared land, and saving each option as it develops. For invited family members.</p>
+        <span class="status role">Private</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="field">
+  <div class="wrap">
+    <div class="sec-head"><span class="mono">04 · The Field</span><h2>Still throwing</h2></div>
+    <div class="field">
+      <div>
+        <p class="big">Release angle <em>~35°</em></p>
+        <p>I coach javelin at Thunder Ridge and compete in masters track and field myself. Most of my training goes into sprint speed and jump height, because a long throw starts in the run-up.</p>
+        <div class="events">
+          <div><b>Javelin</b><span class="mono">Coach &amp; athlete</span></div>
+          <div><b>Shot put</b><span class="mono">Masters</span></div>
+          <div><b>Huntsman</b><span class="mono">World Senior Games</span></div>
+        </div>
+        <canvas id="arc" width="1000" height="600" aria-label="Animated javelin flight path"></canvas>
+      </div>
+      <figure class="shot tall"><img src="beach.jpg" alt="Alan flexing on a beach at sunset, in silhouette" loading="lazy"><figcaption>Victory pose, shoreline</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="snapshots">
+  <div class="wrap">
+    <div class="sec-head"><span class="mono">05 · Snapshots</span><h2>Around the fire</h2></div>
+    <div class="mosaic">
+      <figure class="shot m-shop"><img src="shop.jpg" alt="AI-styled portrait of Alan in a woodworking shop" loading="lazy"><figcaption>The builder <span>AI-styled portrait</span></figcaption></figure>
+      <figure class="shot m-fire"><img src="fire.jpg" alt="Campfire with marshmallows, seen through a fisheye lens" loading="lazy"><figcaption>Campfire, fisheye</figcaption></figure>
+      <figure class="shot m-ripple"><img src="ripple.jpg" alt="Water drop sending out rings across a reflected sky" loading="lazy"><figcaption>Rings within rings</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="curiosities">
+  <div class="wrap">
+    <div class="sec-head"><span class="mono">06 · Curiosities</span><h2>Questions I keep asking</h2></div>
+    <div class="curio">
+      <canvas id="tri" width="880" height="792" aria-label="Sierpiński triangle"></canvas>
+      <div>
+        <ul>
+          <li><span>Geometry &amp; fractals</span><span>3ⁿ triangles, area → 0</span></li>
+          <li><span>Astronomy</span><span>Winter skies over Idaho</span></li>
+          <li><span>Mathematics &amp; binary</span><span>Pascal’s triangle mod 2</span></li>
+          <li><span>Philosophy</span><span>The one and the many</span></li>
+          <li><span>Scripture &amp; history</span><span>Family roots to 1834</span></li>
+        </ul>
+        <p class="note">The triangle on the left is drawn from one simple rule repeated forever. It keeps gaining pieces while its area shrinks toward zero.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <span class="mono">07 · Contact</span>
+    <p class="big">Let’s build<br>something <span>good</span>.</p>
+    <div class="links">
+      <a href="https://doppsclass.com">doppsclass.com</a>
+      <a href="https://theburland.com">theburland.com</a>
+      <a href="https://www.youtube.com/@doppsclass">YouTube · @doppsclass</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap mono">
+    <span>⊙ alandopp.com</span>
+    <span>Idaho Falls, Idaho · © 2026 Alan Dopp</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- HERO SKY ---------- */
+  var sky = document.getElementById('sky'), sx = sky.getContext('2d');
+  var W=0,H=0,dpr=1,stars=[],t0=performance.now();
+  var constel = {
+    Meissa:[.50,.12,1.6,'#d8e4ff'], Betelgeuse:[.33,.24,3.4,'#ff7a45'], Bellatrix:[.66,.27,2.4,'#cfe0ff'],
+    Alnitak:[.45,.53,2.4,'#dce8ff'], Alnilam:[.51,.51,2.5,'#dce8ff'], Mintaka:[.57,.485,2.2,'#dce8ff'],
+    Saiph:[.39,.83,2.2,'#cfe0ff'], Rigel:[.69,.80,3.3,'#a9c8ff']
+  };
+  var lines=[['Meissa','Betelgeuse'],['Meissa','Bellatrix'],['Betelgeuse','Alnitak'],['Bellatrix','Mintaka'],
+             ['Alnitak','Alnilam'],['Alnilam','Mintaka'],['Alnitak','Saiph'],['Mintaka','Rigel']];
+  var labels={Betelgeuse:1,Rigel:1,Alnilam:1};
+  var jav=null;
+
+  function box(){ // where the constellation sits: right side on wide screens, faint behind text on narrow
+    var wide = W>820;
+    var h = Math.min(H*0.86, wide? W*0.5 : W*1.1);
+    var w = h*0.75;
+    return {x: wide ? W - w - W*0.06 : (W-w)/2, y:(H-h)/2, w:w, h:h, a: wide?1:.45};
+  }
+  function resize(){
+    dpr = Math.min(window.devicePixelRatio||1,2);
+    W = sky.clientWidth; H = sky.clientHeight;
+    sky.width = W*dpr; sky.height = H*dpr; sx.setTransform(dpr,0,0,dpr,0,0);
+    stars=[]; var n=Math.round(W*H/2600);
+    for(var i=0;i<n;i++) stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.1+.2,p:Math.random()*6.28,s:.5+Math.random()*1.5});
+  }
+  function pt(name,b){var s=constel[name];return {x:b.x+s[0]*b.w,y:b.y+s[1]*b.h}}
+
+  function drawSky(now){
+    var t=(now-t0)/1000;
+    sx.clearRect(0,0,W,H);
+    var g=sx.createRadialGradient(W*.75,H*.5,0,W*.75,H*.5,Math.max(W,H)*.8);
+    g.addColorStop(0,'#161a36');g.addColorStop(1,'#0a0c18');
+    sx.fillStyle=g;sx.fillRect(0,0,W,H);
+    for(var i=0;i<stars.length;i++){var s=stars[i];
+      var a=reduce?.6:.35+.35*Math.sin(t*s.s+s.p);
+      sx.globalAlpha=a;sx.fillStyle='#e6ebff';sx.beginPath();sx.arc(s.x,s.y,s.r,0,6.283);sx.fill();}
+    sx.globalAlpha=1;
+    var b=box(), drawIn = reduce?1:Math.min(1,t/2.2);
+    // constellation lines draw in on load
+    sx.strokeStyle='rgba(169,200,255,'+(.35*b.a)+')';sx.lineWidth=1;
+    lines.forEach(function(l,i){
+      var p=Math.max(0,Math.min(1,drawIn*lines.length-i)); if(!p) return;
+      var A=pt(l[0],b),B=pt(l[1],b);
+      sx.beginPath();sx.moveTo(A.x,A.y);sx.lineTo(A.x+(B.x-A.x)*p,A.y+(B.y-A.y)*p);sx.stroke();
+    });
+    // the nebula below the belt
+    var neb=pt('Alnilam',b); neb.y+=b.h*.12; neb.x-=b.w*.02;
+    var ng=sx.createRadialGradient(neb.x,neb.y,0,neb.x,neb.y,b.w*.12);
+    ng.addColorStop(0,'rgba(255,140,170,'+(.28*b.a)+')');ng.addColorStop(1,'rgba(255,140,170,0)');
+    sx.fillStyle=ng;sx.beginPath();sx.arc(neb.x,neb.y,b.w*.12,0,6.283);sx.fill();
+    Object.keys(constel).forEach(function(k){
+      var s=constel[k],P=pt(k,b),r=s[2]*(b.w/360+.6);
+      var glow=sx.createRadialGradient(P.x,P.y,0,P.x,P.y,r*5);
+      glow.addColorStop(0,s[3]);glow.addColorStop(1,'rgba(0,0,0,0)');
+      sx.globalAlpha=b.a*(reduce?1:.85+.15*Math.sin(t*2+P.x));
+      sx.fillStyle=glow;sx.beginPath();sx.arc(P.x,P.y,r*5,0,6.283);sx.fill();
+      sx.fillStyle='#fff';sx.beginPath();sx.arc(P.x,P.y,r*.55,0,6.283);sx.fill();
+      if(labels[k] && W>820){sx.globalAlpha=.7;sx.fillStyle='#9097b3';sx.font='11px "JetBrains Mono", monospace';
+        sx.fillText(k.toUpperCase(),P.x+r*2.4,P.y+4);}
+      sx.globalAlpha=1;
+    });
+    // javelin streak (the one orchestrated moment)
+    if(jav){
+      var p=(now-jav.start)/1400;
+      if(p>=1){jav=null;}
+      else{
+        var e=p, x0=W*.04,y0=H*.86,x1=W*.94,y1=H*.78,peak=H*.12;
+        function at(u){return {x:x0+(x1-x0)*u, y:(1-u)*(1-u)*y0+2*(1-u)*u*peak+u*u*y1};}
+        var head=at(e), tail=at(Math.max(0,e-.09));
+        var lg=sx.createLinearGradient(tail.x,tail.y,head.x,head.y);
+        lg.addColorStop(0,'rgba(241,199,91,0)');lg.addColorStop(1,'rgba(241,199,91,.95)');
+        sx.strokeStyle=lg;sx.lineWidth=2.4;sx.lineCap='round';
+        sx.beginPath();sx.moveTo(tail.x,tail.y);
+        for(var u=Math.max(0,e-.09);u<=e;u+=.01){var q=at(u);sx.lineTo(q.x,q.y);}
+        sx.stroke();
+        sx.fillStyle='#fff';sx.beginPath();sx.arc(head.x,head.y,2,0,6.283);sx.fill();
+      }
+    }
+    if(!reduce) requestAnimationFrame(drawSky);
+  }
+  function throwJav(){ jav={start:performance.now()}; if(reduce){ /* no motion: skip */ jav=null; } }
+  document.getElementById('throwBtn').addEventListener('click',function(){throwJav();throwArc();});
+  window.addEventListener('resize',function(){resize(); if(reduce) drawSky(performance.now());});
+  resize(); requestAnimationFrame(drawSky);
+  if(!reduce) setTimeout(throwJav,1600);
+
+  /* ---------- FIELD ARC ---------- */
+  var arc=document.getElementById('arc'), ax=arc.getContext('2d'), arcStart=null;
+  function arcPath(u){ // 35° release, simple projectile scaled to box
+    var x=90+u*820, h=Math.tan(35*Math.PI/180)*820*u*(1-u)*1.0;
+    return {x:x, y:470-h};
+  }
+  function drawArc(now){
+    ax.clearRect(0,0,1000,600);
+    // ground + sector lines
+    ax.strokeStyle='rgba(169,200,255,.18)';ax.lineWidth=1;
+    for(var m=0;m<=8;m++){var gx=90+m*102.5;ax.beginPath();ax.moveTo(gx,470);ax.lineTo(gx,486);ax.stroke();
+      ax.fillStyle='#9097b3';ax.font='18px "JetBrains Mono", monospace';ax.fillText((m*10)+'m',gx-14,512);}
+    ax.beginPath();ax.moveTo(60,470);ax.lineTo(960,470);ax.stroke();
+    // angle marker
+    ax.strokeStyle='rgba(255,122,69,.6)';ax.beginPath();ax.arc(90,470,70,-35*Math.PI/180,0);ax.stroke();
+    ax.fillStyle='#ff7a45';ax.font='20px "JetBrains Mono", monospace';ax.fillText('35°',170,452);
+    var p = arcStart===null ? 1 : Math.min(1,(now-arcStart)/1600);
+    ax.setLineDash([6,8]);ax.strokeStyle='rgba(241,199,91,.55)';ax.lineWidth=2;ax.beginPath();
+    for(var u=0;u<=p;u+=.005){var q=arcPath(u); if(u===0)ax.moveTo(q.x,q.y); else ax.lineTo(q.x,q.y);} ax.stroke();ax.setLineDash([]);
+    // javelin body along tangent
+    var c=arcPath(p), d=arcPath(Math.max(0,p-.01)), ang=Math.atan2(c.y-d.y,c.x-d.x)||(-35*Math.PI/180);
+    if(p===0) ang=-35*Math.PI/180;
+    ax.save();ax.translate(c.x,c.y);ax.rotate(ang);
+    ax.strokeStyle='#ebe7dc';ax.lineWidth=4;ax.lineCap='round';ax.beginPath();ax.moveTo(-70,0);ax.lineTo(10,0);ax.stroke();
+    ax.fillStyle='#f1c75b';ax.beginPath();ax.moveTo(10,-4);ax.lineTo(26,0);ax.lineTo(10,4);ax.fill();
+    ax.restore();
+    if(p>=1){ax.fillStyle='#f1c75b';ax.font='600 22px "JetBrains Mono", monospace';ax.fillText('LAND ↓',c.x-120,c.y-26);}
+    if(p<1) requestAnimationFrame(drawArc);
+  }
+  function throwArc(){ if(reduce){arcStart=null;drawArc(0);return;} arcStart=performance.now(); requestAnimationFrame(drawArc); }
+  drawArc(0);
+  if('IntersectionObserver' in window && !reduce){
+    var seen=false; new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!seen){seen=true;throwArc();}});},{threshold:.5}).observe(arc);
+  }
+
+  /* ---------- SIERPINSKI ---------- */
+  var tri=document.getElementById('tri'), tx=tri.getContext('2d');
+  function sier(ax_,ay,bx,by,cx,cy,d){
+    if(d===0){tx.beginPath();tx.moveTo(ax_,ay);tx.lineTo(bx,by);tx.lineTo(cx,cy);tx.closePath();tx.fill();return;}
+    var abx=(ax_+bx)/2,aby=(ay+by)/2,bcx=(bx+cx)/2,bcy=(by+cy)/2,cax=(cx+ax_)/2,cay=(cy+ay)/2;
+    sier(ax_,ay,abx,aby,cax,cay,d-1);sier(abx,aby,bx,by,bcx,bcy,d-1);sier(cax,cay,bcx,bcy,cx,cy,d-1);
+  }
+  var tg=tx.createLinearGradient(0,0,880,792);tg.addColorStop(0,'#f1c75b');tg.addColorStop(.6,'#ff7a45');tg.addColorStop(1,'#a9c8ff');
+  tx.fillStyle=tg; sier(440,20,20,772,860,772,7);
+  // the circumpunct at the empty center
+  tx.strokeStyle='#ebe7dc';tx.lineWidth=2;tx.beginPath();tx.arc(440,521,70,0,6.283);tx.stroke();
+  tx.fillStyle='#ebe7dc';tx.beginPath();tx.arc(440,521,9,0,6.283);tx.fill();
+})();
+</script>
+</body>
+</html>
