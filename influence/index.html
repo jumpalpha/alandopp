@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Influence Defense Manual</title>
+<meta name="description" content="A free 12-module self-defense course on how people are read, influenced and controlled, with self-profiling and scenario drills.">
+<link rel="canonical" href="https://alandopp.com/influence/">
+<meta name="robots" content="index,follow">
+
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: field-manual — sticky module index on the left, one long reading column, defense cards set off in ink */
+html{color-scheme:light}
+:root{
+  --bg:#eef1f2; --paper:#f8fafa; --fg:#1b2427; --muted:#5a6a70; --rule:#cdd6d9;
+  --ink:#0f5c63; --ink-soft:#dcebec; --flag:#b4580f; --flag-soft:#f6e7d8;
+  --display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111719; --paper:#172023; --fg:#e3eaec; --muted:#93a4aa; --rule:#2b383c;
+  --ink:#5cc2c9; --ink-soft:#173538; --flag:#e9964f; --flag-soft:#3a2716; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111719; --paper:#172023; --fg:#e3eaec; --muted:#93a4aa; --rule:#2b383c;
+  --ink:#5cc2c9; --ink-soft:#173538; --flag:#e9964f; --flag-soft:#3a2716; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:16px/1.65 var(--body);margin:0}
+.wrap{display:grid;grid-template-columns:250px minmax(0,1fr);gap:48px;max-width:1180px;margin:0 auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 80px}
+nav.index{position:sticky;top:calc(env(safe-area-inset-top,0px) + 20px);align-self:start;max-height:calc(100vh - 40px);overflow:auto;font-size:14px}
+nav.index h2{font:600 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+nav.index ol{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+nav.index a{display:flex;gap:10px;align-items:baseline;padding:6px 8px;border-radius:4px;color:var(--fg);text-decoration:none}
+nav.index a:hover,nav.index a:focus-visible{background:var(--ink-soft);outline:none}
+nav.index .n{font:500 12px var(--mono);color:var(--muted);min-width:22px}
+nav.index .done .n::after{content:" ✓";color:var(--ink)}
+.progress{margin-top:16px;font:12px var(--mono);color:var(--muted)}
+.bar{height:4px;background:var(--rule);border-radius:2px;margin-top:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink);width:0;transition:width .3s}
+main{min-width:0;max-width:720px}
+header.cover{padding-bottom:28px;border-bottom:2px solid var(--fg);margin-bottom:8px}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+h1{font:800 clamp(38px,6vw,60px)/1.0 var(--display);font-stretch:78%;letter-spacing:-.01em;margin:14px 0 16px;text-wrap:balance}
+.lede{font-size:18px;color:var(--muted);margin:0;max-width:62ch}
+section.mod{padding-block:44px 8px;border-bottom:1px solid var(--rule)}
+section.mod>.eyebrow{display:block;margin-bottom:8px}
+h2.t{font:750 34px/1.08 var(--display);font-stretch:82%;margin:0 0 14px;text-wrap:balance}
+h3{font:700 20px/1.25 var(--display);font-stretch:90%;margin:30px 0 8px}
+p,li{max-width:66ch}
+ul,ol{padding-left:22px}
+li{margin-bottom:6px}
+strong{font-weight:600}
+.src{font:13px/1.5 var(--mono);color:var(--muted)}
+.card{border-radius:6px;padding:16px 20px;margin:22px 0}
+.card .eyebrow{display:block;margin-bottom:6px}
+.card p:last-child,.card ul:last-child{margin-bottom:0}
+.defense{background:var(--ink-soft);border-left:4px solid var(--ink)}
+.flag{background:var(--flag-soft);border-left:4px solid var(--flag)}
+.flag .eyebrow{color:var(--flag)}
+.reality{border:1px dashed var(--rule);background:var(--paper)}
+.reality .eyebrow{color:var(--muted)}
+.tbl{overflow-x:auto;margin:18px 0}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:520px}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--rule)}
+th{font:600 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+td:first-child{font-weight:600;white-space:nowrap}
+.check{margin:26px 0 10px;padding:18px 20px;background:var(--paper);border:1px solid var(--rule);border-radius:6px}
+.check h4{font:600 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;margin:0 0 10px;color:var(--muted)}
+details{border-top:1px solid var(--rule);padding:10px 0}
+details:first-of-type{border-top:0}
+summary{cursor:pointer;font-weight:500}
+summary:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+details p{margin:8px 0 0;color:var(--muted)}
+.mark{display:flex;gap:10px;align-items:center;margin:20px 0 34px;font:500 14px var(--body)}
+.mark input{width:18px;height:18px;accent-color:var(--ink)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:18px 0}
+.tile{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:14px 16px;min-width:0}
+.tile b{display:block;font:700 17px var(--display);font-stretch:90%;margin-bottom:4px}
+.tile span{font-size:14.5px;color:var(--muted)}
+.letter{font:800 28px/1 var(--display);color:var(--ink);margin-right:6px}
+fieldset{border:1px solid var(--rule);border-radius:6px;padding:12px 16px;margin:14px 0}
+legend{font:600 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:0 6px}
+fieldset label{display:inline-flex;gap:6px;align-items:center;margin:4px 14px 4px 0;font-size:15px}
+#profileOut{min-height:20px}
+.mob{display:none}
+@media (max-width:860px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:0}
+  nav.index{display:none}
+  .mob{display:block;margin:18px 0 0}
+  .mob select{width:100%;padding:10px;font:15px var(--body);background:var(--paper);color:var(--fg);border:1px solid var(--rule);border-radius:6px}
+}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+<style>.home{font:500 13px var(--mono);color:var(--ink);text-decoration:none;display:inline-block;margin-bottom:18px}.home:hover{text-decoration:underline}</style>
+</head>
+<body>
+
+<div class="wrap">
+<nav class="index" aria-label="Modules">
+  <h2>Modules</h2>
+  <ol id="navlist"></ol>
+  <div class="progress"><span id="progText">0 of 12 complete</span><div class="bar"><i id="progBar"></i></div></div>
+</nav>
+
+<main>
+<header class="cover">
+  <a class="home" href="/">← alandopp.com</a><br>
+  <span class="eyebrow">Self-defense course · 12 modules</span>
+  <h1>Influence Defense Manual</h1>
+  <p class="lede">A working course on the models a well-known behavioral profiling instructor teaches about how people are read, influenced and controlled, rebuilt for one purpose: so you can see it happening to you and stay in charge of your own decisions.</p>
+  <div class="mob"><label for="jump" class="src">Jump to module</label><select id="jump"></select></div>
+</header>
+
+<!-- 0 -->
+<section class="mod" id="m0" data-title="Start here">
+<span class="eyebrow">Module 00</span>
+<h2 class="t">Start here: where this comes from and how to use it</h2>
+<p>The models in this course come from a veteran behavioral profiling instructor, called <strong>the Profiler</strong> throughout. The Profiler trains interrogators, salespeople and negotiators in reading people quickly and steering their decisions, and has written and spoken widely about manipulation, cults and psychological operations.</p>
+<p>That teaching is offensive by design: it shows interrogators, salespeople and negotiators how to profile and steer people. This course flips every tool around. For each model you learn three things: what it is, how someone would use it on you, and what you do about it.</p>
+<div class="card reality">
+<span class="eyebrow">Straight talk on accuracy</span>
+<p>The Profiler's frameworks are practical models, not peer-reviewed science. Some pieces line up well with mainstream research (authority, social proof, commitment, needs and fears). Others, especially reading lies from body language, are much weaker than they sound: in controlled studies people spot lies only slightly better than a coin flip. Use these models as lenses that raise good questions, never as lie detectors. Where this course adds material from other researchers, it says so.</p>
+</div>
+<h3>How to study it</h3>
+<ol>
+<li>Do one module per sitting. Read it, then answer the self-check from memory before opening the answers.</li>
+<li>Spend a day watching for the module's pattern in ads, news, meetings and your own conversations.</li>
+<li>Fill in the self-profile in Module 03 and 04. Your own needs and decision style are your weakest doors.</li>
+<li>Finish with the scenario drills in Module 11 and rerun them a month later.</li>
+</ol>
+</section>
+
+<!-- 1 -->
+<section class="mod" id="m1" data-title="The autopilot mind">
+<span class="eyebrow">Module 01</span>
+<h2 class="t">The autopilot mind and the FATE model</h2>
+<p>The Profiler's starting point: most human behavior runs on old, automatic survival programs. We like to think we decide with logic, but logic usually shows up afterwards to justify what the older brain already chose. Anyone who knows which programs fire first can get ahead of your reasoning.</p>
+<p>The Profiler groups the big levers into four, under the name <strong>FATE</strong>.</p>
+<div class="grid2">
+<div class="tile"><b><span class="letter">F</span>Focus</b><span>The brain locks onto novelty, threat and change. Whoever controls your attention controls what you think about, and what you never get to think about.</span></div>
+<div class="tile"><b><span class="letter">A</span>Authority</b><span>We are wired to defer to whoever seems to be in charge. Signals of status, calm certainty and expertise switch off our questioning.</span></div>
+<div class="tile"><b><span class="letter">T</span>Tribe</b><span>Belonging once meant survival. We copy our group, fear exclusion and accept ideas more easily from "people like us".</span></div>
+<div class="tile"><b><span class="letter">E</span>Emotion</b><span>Strong feeling narrows thinking. Fear, outrage, excitement and shame all reduce our ability to weigh options.</span></div>
+</div>
+<h3>How it's used on you</h3>
+<ul>
+<li><strong>Focus:</strong> a scam call opens with "Your account has been compromised." Your attention collapses onto the threat, and you stop asking who is calling.</li>
+<li><strong>Authority:</strong> the caller says "This is the fraud department," uses jargon and stays calm while you panic. Calm plus title reads as authority.</li>
+<li><strong>Tribe:</strong> "Everyone in the group already committed." "Real patriots / real believers / smart investors know..."</li>
+<li><strong>Emotion:</strong> a deadline, a frightening story, or flattery that makes you feel special, all designed to raise feeling and lower analysis.</li>
+</ul>
+<div class="card defense">
+<span class="eyebrow">Defense</span>
+<p>When all four levers fire together (sudden alarm, an official-sounding person, social pressure and a strong feeling) treat it as an alarm in itself. Real emergencies rarely need your decision within minutes from a stranger. Say: "I'll call you back on the official number," and hang up.</p>
+</div>
+<div class="check"><h4>Self-check</h4>
+<details><summary>Why does emotion help a manipulator even when the emotion is positive?</summary><p>Any strong emotion narrows attention and reduces careful comparison of options. Excitement and flattery work as well as fear; "you've been selected" is an emotional lever.</p></details>
+<details><summary>Which FATE lever does a fake uniform or badge pull?</summary><p>Authority. Visible symbols of rank or expertise trigger deference before we check whether they're real.</p></details>
+<details><summary>What is the single most useful counter to Focus attacks?</summary><p>Widening your attention on purpose: slow down and ask what you are not being shown. Who benefits, what's the source, what happens if I wait?</p></details>
+</div>
+<label class="mark"><input type="checkbox" id="done-m1"> Mark module 01 complete</label>
+</section>
+
+<!-- 2 -->
+<section class="mod" id="m2" data-title="Perception, Context, Permission">
+<span class="eyebrow">Module 02</span>
+<h2 class="t">Perception, Context, Permission</h2>
+<p>In books and interviews, the Profiler describes behavior change as a three-step order, often called the <strong>PCP model</strong>. You almost never change someone's behavior directly. You change what they perceive, which changes the context they think they're in, which gives them permission to act differently. Behavior changes last.</p>
+<div class="tbl"><table>
+<thead><tr><th>Step</th><th>What changes</th><th>Example in a manipulative setting</th></tr></thead>
+<tbody>
+<tr><td>Perception</td><td>How you see the person or situation</td><td>A new boss is framed as "the only one who really understands what's going on here."</td></tr>
+<tr><td>Context</td><td>What kind of situation you believe you're in</td><td>"We're in crisis mode. Normal rules don't apply right now."</td></tr>
+<tr><td>Permission</td><td>Which behavior now feels allowed or expected</td><td>Skipping approvals, working unpaid weekends, hiding information from HR all start to feel reasonable.</td></tr>
+</tbody></table></div>
+<p>The Profiler calls context the most important thing in influence. The same request lands completely differently in a hospital, a nightclub or a church. Skilled manipulators spend most of their effort building the frame; the actual ask is small by comparison.</p>
+<h3>Where you'll see it</h3>
+<ul>
+<li><strong>Cults and high-control groups:</strong> perception ("the leader sees what others can't"), context ("the world is ending / corrupt"), permission ("so cutting off family is loyalty, not cruelty").</li>
+<li><strong>Romance scams:</strong> perception ("we have a rare connection"), context ("I'm stuck overseas in an emergency"), permission ("sending money is what a partner does").</li>
+<li><strong>Sales:</strong> perception ("this is an exclusive offer"), context ("today only"), permission ("buying now is the smart move").</li>
+</ul>
+<div class="card defense">
+<span class="eyebrow">Defense</span>
+<p>Name the frame out loud, even just to yourself: "I'm being told this is an emergency / a special relationship / a once-only chance." Then ask: would I do this thing if the frame were false? If the answer is no, verify the frame before acting.</p>
+</div>
+<div class="check"><h4>Self-check</h4>
+<details><summary>Why does a manipulator rarely open with the request?</summary><p>Because without the right perception and context the request would feel wrong. The groundwork makes the request feel natural, so it gets permission instead of resistance.</p></details>
+<details><summary>"Normal rules don't apply right now." Which PCP step is this?</summary><p>Context. It redefines the situation so that unusual behavior gains permission.</p></details>
+</div>
+<label class="mark"><input type="checkbox" id="done-m2"> Mark module 02 complete</label>
+</section>
+
+<!-- 3 -->
+<section class="mod" id="m3" data-title="The Human Needs Map">
+<span class="eyebrow">Module 03</span>
+<h2 class="t">The Human Needs Map</h2>
+<p>The Profiler describes six social needs. The claim is that each person is driven mostly by two of them, and each need comes paired with a fear of its opposite. Find someone's top needs and you know what they'll chase and what they'll avoid at almost any cost.</p>
+<div class="tbl"><table>
+<thead><tr><th>Need</th><th>Looks like</th><th>How it gets exploited</th></tr></thead>
+<tbody>
+<tr><td>Significance</td><td>Wants to matter, be noticed, be important</td><td>"You're the only one who can do this." Special titles, inner-circle status.</td></tr>
+<tr><td>Approval</td><td>Wants to be told they did well</td><td>Praise given, then withdrawn, so you work to win it back.</td></tr>
+<tr><td>Acceptance</td><td>Wants to belong and be included</td><td>Love-bombing by a group, then the quiet threat of exclusion.</td></tr>
+<tr><td>Intelligence</td><td>Wants to be seen as smart, capable, informed</td><td>"Someone as sharp as you will see why this deal makes sense." Hard to back out without looking foolish.</td></tr>
+<tr><td>Pity</td><td>Wants sympathy, to have hardship acknowledged</td><td>The manipulator becomes the only one who "truly understands what you've been through."</td></tr>
+<tr><td>Strength</td><td>Wants to be seen as capable, in control, tough</td><td>"Are you strong enough to take this risk?" Dares and challenges.</td></tr>
+</tbody></table></div>
+<p>People reveal their needs constantly through the stories they tell, what they complain about, what they brag about and what they ask others to notice. The Profiler trains students to listen for that. You can listen too, starting with yourself.</p>
+<fieldset id="needsSet"><legend>Your self-profile: pick your top two needs</legend>
+<label><input type="checkbox" name="need" value="Significance"> Significance</label>
+<label><input type="checkbox" name="need" value="Approval"> Approval</label>
+<label><input type="checkbox" name="need" value="Acceptance"> Acceptance</label>
+<label><input type="checkbox" name="need" value="Intelligence"> Intelligence</label>
+<label><input type="checkbox" name="need" value="Pity"> Pity</label>
+<label><input type="checkbox" name="need" value="Strength"> Strength</label>
+</fieldset>
+<div class="card defense" id="needsOut"><span class="eyebrow">Your weak doors</span><p>Pick up to two needs above to see the lines that would work best on you.</p></div>
+<div class="check"><h4>Self-check</h4>
+<details><summary>Why is knowing your own top needs more useful than spotting other people's?</summary><p>A manipulator aims at what you most want. If you know your top needs, you can notice when something is feeding them unusually well and treat that good feeling as a reason to slow down.</p></details>
+<details><summary>Someone keeps saying "You're not like the others, you get it." Which needs are being fed?</summary><p>Mostly Intelligence and Significance, often with Acceptance too: you're being placed in a special in-group.</p></details>
+</div>
+<label class="mark"><input type="checkbox" id="done-m3"> Mark module 03 complete</label>
+</section>
+
+<!-- 4 -->
+<section class="mod" id="m4" data-title="The Decision Map">
+<span class="eyebrow">Module 04</span>
+<h2 class="t">The Decision Map</h2>
+<p>Also from the Profiler's rapid-profiling method: six styles that drive how a person makes decisions, from buying a car to agreeing to a date to confessing in an interview. The Profiler lists them in an order where neighboring styles overlap, so people are often moved by their main style and the ones next to it.</p>
+<div class="tbl"><table>
+<thead><tr><th>Style</th><th>Moved by</th><th>The pitch built for it</th></tr></thead>
+<tbody>
+<tr><td>Deviance</td><td>Breaking rules, being different, rebellion</td><td>"They don't want you to know this." "Most people are too scared to do this."</td></tr>
+<tr><td>Novelty</td><td>The new, the latest, the exciting</td><td>"Brand new, nobody's tried this yet." "Be first."</td></tr>
+<tr><td>Social</td><td>How it affects their image and relationships</td><td>"Imagine what people will think when they see it."</td></tr>
+<tr><td>Conformity</td><td>What others like them already do</td><td>"Thousands of families already switched." "It's the standard."</td></tr>
+<tr><td>Investment</td><td>Value, return, long-term payoff</td><td>"It pays for itself in a year." "Think of it as an investment."</td></tr>
+<tr><td>Necessity</td><td>Need, practicality, "does it solve the problem"</td><td>"You'll need this eventually anyway." "It just works."</td></tr>
+</tbody></table></div>
+<p>The Profiler teaches that you build rapport by showing you share the other person's style. Seen defensively: when a stranger's values seem to match yours perfectly and quickly, ask whether you're seeing a real match or a mirror.</p>
+<fieldset id="decSet"><legend>Your self-profile: your main decision style</legend>
+<label><input type="radio" name="dec" value="Deviance"> Deviance</label>
+<label><input type="radio" name="dec" value="Novelty"> Novelty</label>
+<label><input type="radio" name="dec" value="Social"> Social</label>
+<label><input type="radio" name="dec" value="Conformity"> Conformity</label>
+<label><input type="radio" name="dec" value="Investment"> Investment</label>
+<label><input type="radio" name="dec" value="Necessity"> Necessity</label>
+</fieldset>
+<div class="card defense" id="decOut"><span class="eyebrow">Your pitch to watch for</span><p>Choose your main style above.</p></div>
+<div class="check"><h4>Self-check</h4>
+<details><summary>A crypto promoter says "The banks are terrified of this." Which style is targeted?</summary><p>Deviance, with some Novelty. It invites you to feel like a rule-breaker who sees through the system.</p></details>
+<details><summary>Why does matching someone's decision style build trust so fast?</summary><p>People trust those who seem to think the way they do. It reads as "this person is one of us", which pulls the Tribe lever from Module 01.</p></details>
+</div>
+<label class="mark"><input type="checkbox" id="done-m4"> Mark module 04 complete</label>
+</section>
+
+<!-- 5 -->
+<section class="mod" id="m5" data-title="Reading behavior">
+<span class="eyebrow">Module 05</span>
+<h2 class="t">Reading behavior, and its limits</h2>
+<p>A large share of the Profiler's work is nonverbal behavior: the face, hands, posture, breathing and voice, organized into a detailed catalog of behaviors. The rules that matter most, and that most body-language teachers agree on, are these:</p>
+<ol>
+<li><strong>Baseline first.</strong> Learn how a person normally acts when relaxed. A fidget means nothing in someone who always fidgets.</li>
+<li><strong>Look for change.</strong> What matters is a shift from baseline right after a specific question or topic.</li>
+<li><strong>Look for clusters.</strong> One signal is noise. Several changes together, at the same moment, are worth a question.</li>
+<li><strong>Respect context.</strong> Cold room, tight chair, a nervous person facing an authority figure. Stress is not guilt.</li>
+</ol>
+<h3>Useful categories to notice</h3>
+<ul>
+<li><strong>Self-soothing:</strong> touching the neck, face or arms, rubbing hands. Signals discomfort, not lying.</li>
+<li><strong>Blocking and distancing:</strong> crossing arms, putting objects between you, leaning away.</li>
+<li><strong>Lip compression and jaw tension:</strong> often held-back feeling or words.</li>
+<li><strong>Breathing and swallowing changes:</strong> stress responses.</li>
+<li><strong>Mismatch:</strong> words say yes while the head shakes slightly no; a smile that never reaches the eyes.</li>
+</ul>
+<div class="card reality">
+<span class="eyebrow">What the research says</span>
+<p>No single behavior reliably means someone is lying. Large reviews of deception studies find people, including trained police, are right only about 54% of the time. Nervous honest people get accused while calm liars slip through. Use behavior to decide where to ask a follow-up question. Never use it to decide who is guilty.</p>
+</div>
+<div class="card defense">
+<span class="eyebrow">Defense</span>
+<p>Turn it around: people who study this are reading <em>you</em>. You don't need a poker face. You need to know your own tells under pressure (rushing, over-explaining, nodding along) and to slow down when you notice them. Also be wary of anyone who claims they can read your mind from your face. That claim itself is an authority play.</p>
+</div>
+<div class="check"><h4>Self-check</h4>
+<details><summary>Someone touches their nose while answering. What does it tell you?</summary><p>On its own, almost nothing. Compare it to their baseline, check whether it came right after a specific question, and look for other changes at the same moment.</p></details>
+<details><summary>What's the fair use of a behavior cluster?</summary><p>As a prompt to ask a gentle, open follow-up question about that topic. Not as proof.</p></details>
+</div>
+<label class="mark"><input type="checkbox" id="done-m5"> Mark module 05 complete</label>
+</section>
+
+<!-- 6 -->
+<section class="mod" id="m6" data-title="Language as a weapon">
+<span class="eyebrow">Module 06</span>
+<h2 class="t">Language: what it reveals and how it steers</h2>
+<h3>What your words give away</h3>
+<p>The Profiler trains students to listen to word choice, because people leak their inner world through it:</p>
+<ul>
+<li><strong>Locus of control.</strong> "It happened to me" versus "I made a choice." People who talk as if life happens to them (external locus) are easier to lead with a confident rescuer.</li>
+<li><strong>Sensory words.</strong> "I see what you mean," "that sounds right," "it feels off." Profilers mirror your style to feel familiar.</li>
+<li><strong>Pronouns and distance.</strong> Shifts from "I" to "you" or "we" when a topic gets uncomfortable.</li>
+<li><strong>Repeated themes.</strong> What someone keeps coming back to often points straight at their top need.</li>
+</ul>
+<h3>Language patterns used to steer you</h3>
+<p>The Profiler's teaching draws heavily on hypnotic and persuasive language. These are the patterns worth being able to name instantly:</p>
+<div class="tbl"><table>
+<thead><tr><th>Pattern</th><th>Example</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td>Presupposition</td><td>"When you sign up, which plan will you choose?"</td><td>Assumes the decision is made and moves you to a smaller question.</td></tr>
+<tr><td>False choice (bind)</td><td>"Do you want to start Monday or Wednesday?"</td><td>Offers two options that both mean yes.</td></tr>
+<tr><td>Embedded command</td><td>"I'm not sure you'll <em>decide to trust me</em> today."</td><td>Hides an instruction inside a softer sentence.</td></tr>
+<tr><td>Labeling</td><td>"You're obviously a generous person."</td><td>Gives you an identity you then feel pressure to live up to.</td></tr>
+<tr><td>"Because"</td><td>"Can I go first, because I need to?"</td><td>Any reason, even an empty one, raises compliance.</td></tr>
+<tr><td>Vague authority</td><td>"Studies show." "Experts agree."</td><td>Borrows authority without anything you can check.</td></tr>
+<tr><td>Loaded words</td><td>"Traitor," "sheep," "awakened," "toxic"</td><td>Replaces thinking with an emotional reaction or a group label.</td></tr>
+</tbody></table></div>
+<div class="card defense">
+<span class="eyebrow">Defense</span>
+<ul>
+<li>When given two options, ask for the third: "Or I don't start at all. What happens then?"</li>
+<li>When something is assumed, un-assume it: "I haven't decided to sign up."</li>
+<li>When labeled, keep your identity and drop the request: "I am generous. I'm still not doing this."</li>
+<li>When told "studies show," ask "Which study?"</li>
+</ul>
+</div>
+<div class="check"><h4>Self-check</h4>
+<details><summary>"Before you join, what would you like your first project to be?" Name the pattern.</summary><p>Presupposition. It treats joining as settled and invites you to plan past the decision.</p></details>
+<details><summary>Why does labeling work so well on people with a strong need for Approval?</summary><p>The label is a gift of approval. Refusing the request feels like rejecting the compliment and losing the approval.</p></details>
+</div>
+<label class="mark"><input type="checkbox" id="done-m6"> Mark module 06 complete</label>
+</section>
+
+<!-- 7 -->
+<section class="mod" id="m7" data-title="Authority">
+<span class="eyebrow">Module 07</span>
+<h2 class="t">Authority and approval-seeking</h2>
+<p>Authority is one of the Profiler's central themes. The view: people follow whoever displays authority, and nothing destroys your authority faster than <strong>approval-seeking</strong>. That makes it a double lesson. Manipulators fake authority to control you, and they look for approval-seeking in you as a sign you can be led.</p>
+<h3>Signals of authority (real or faked)</h3>
+<ul>
+<li>Calm, slower speech; comfortable with silence</li>
+<li>Taking up space; still, unhurried movement</li>
+<li>Not explaining or justifying too much</li>
+<li>Titles, uniforms, credentials, expensive settings</li>
+<li>Controlling the pace and agenda of the conversation</li>
+</ul>
+<h3>Approval-seeking behaviors manipulators look for</h3>
+<ul>
+<li>Over-apologizing, over-explaining, filling silence</li>
+<li>Ending statements as questions ("...right?")</li>
+<li>Laughing at things that aren't funny to keep the peace</li>
+<li>Checking the other person's face for a reaction after every sentence</li>
+<li>Agreeing quickly to avoid friction</li>
+</ul>
+<div class="card flag">
+<span class="eyebrow">Red flag</span>
+<p>Fake authority usually comes with a demand that you skip verification: "There's no time to check," "Don't talk to anyone else about this," "I'm the expert, just trust me." Real authority holds up when you check it.</p>
+</div>
+<div class="card defense">
+<span class="eyebrow">Defense</span>
+<ul>
+<li>Verify credentials through a channel you find yourself, never one they give you.</li>
+<li>Practice comfortable silence. Let a pause sit for three seconds instead of filling it with a yes.</li>
+<li>Say "No" or "I'll think about it" as a full sentence, with no explanation attached.</li>
+<li>Notice whose pace the conversation is running at, and slow it down.</li>
+</ul>
+</div>
+<div class="check"><h4>Self-check</h4>
+<details><summary>Why is over-explaining a vulnerability?</summary><p>It signals you need the other person's agreement, which tells them pressure will work, and it gives them more material to argue with.</p></details>
+<details><summary>What's the simplest test for fake authority?</summary><p>Independent verification. Call the organization on its published number, or look up the credential yourself. Fakes resist this; real authorities expect it.</p></details>
+</div>
+<label class="mark"><input type="checkbox" id="done-m7"> Mark module 07 complete</label>
+</section>
+
+<!-- 8 -->
+<section class="mod" id="m8" data-title="Elicitation">
+<span class="eyebrow">Module 08</span>
+<h2 class="t">Elicitation: getting you to talk</h2>
+<p>Elicitation is a technique from intelligence work that the Profiler teaches: getting information without ever asking a direct question. It works because people like to correct mistakes, share expertise, return favors and be listened to. It's how social engineers get passwords, security questions answers, schedules and secrets.</p>
+<div class="tbl"><table>
+<thead><tr><th>Technique</th><th>Sounds like</th><th>Why it works</th></tr></thead>
+<tbody>
+<tr><td>Deliberate false statement</td><td>"Your company must use that old payroll system."</td><td>We feel a strong urge to correct errors, and the correction is the information.</td></tr>
+<tr><td>Bracketing</td><td>"You must earn somewhere between 60 and 80?"</td><td>You narrow the range for them without noticing.</td></tr>
+<tr><td>Flattery</td><td>"You clearly know this better than anyone here."</td><td>Feeds Intelligence and Significance; experts love to explain.</td></tr>
+<tr><td>Quid pro quo</td><td>"I'll tell you my embarrassing story first."</td><td>We feel we owe a matching disclosure.</td></tr>
+<tr><td>Assumed knowledge</td><td>"Since you're on the project too, you know about the delay..."</td><td>Acting like an insider makes you treat them as one.</td></tr>
+<tr><td>Disbelief</td><td>"No way, that can't be true."</td><td>You add detail to prove it.</td></tr>
+<tr><td>Sympathetic listening</td><td>Long, warm silences and "that sounds so hard"</td><td>Being heard is rare; people fill the space.</td></tr>
+</tbody></table></div>
+<div class="card defense">
+<span class="eyebrow">Defense</span>
+<ul>
+<li>Notice when you're the only one sharing. That imbalance is the tell.</li>
+<li>You don't have to correct a stranger. "Could be," and change the subject.</li>
+<li>Be careful with "fun" online quizzes about your first pet, first car or childhood street. Those are common security-question answers.</li>
+<li>After a surprisingly great conversation with someone new, ask: what do they now know about me, and what do I know about them?</li>
+</ul>
+</div>
+<div class="check"><h4>Self-check</h4>
+<details><summary>A stranger at a conference says "I heard your team's launch slipped to March." What's the move, and your best reply?</summary><p>A deliberate false statement or assumed knowledge. Neutral reply: "Can't really talk about timelines," with no correction.</p></details>
+</div>
+<label class="mark"><input type="checkbox" id="done-m8"> Mark module 08 complete</label>
+</section>
+
+<!-- 9 -->
+<section class="mod" id="m9" data-title="Coercion and control">
+<span class="eyebrow">Module 09</span>
+<h2 class="t">Coercion and control</h2>
+<p>Influence becomes coercion when the target loses real freedom to say no. In interviews about cults and psychological operations, the Profiler describes control as a gradual process: small steps, each one making the next feel normal. These are the mechanics that show up again and again in abusive relationships, high-control groups and exploitative workplaces.</p>
+<h3>The building blocks</h3>
+<ul>
+<li><strong>Small first steps.</strong> A tiny yes makes a bigger yes easier. Each step resets what feels normal.</li>
+<li><strong>Commitment and consistency.</strong> Once you've said or done something publicly, you feel pressure to keep acting in line with it.</li>
+<li><strong>Isolation.</strong> Cutting you off from people who would tell you something is wrong.</li>
+<li><strong>Dependency.</strong> Becoming your source of money, information, approval or identity.</li>
+<li><strong>Intermittent reward.</strong> Warmth and punishment on an unpredictable schedule. This builds the strongest attachment of all, much like a slot machine.</li>
+<li><strong>Fear then relief.</strong> Creating anxiety and then offering relief, so the controller feels like the safe place.</li>
+<li><strong>Exhaustion and overload.</strong> Tired, busy, sleep-deprived people stop questioning.</li>
+<li><strong>Controlled information.</strong> Telling you which sources are lies and which one is the truth.</li>
+</ul>
+<div class="card reality">
+<span class="eyebrow">Added from other researchers</span>
+<p>Three classic frameworks are worth knowing alongside the Profiler's. They come from other researchers, but they describe the same process: <strong>Albert Biderman's Chart of Coercion</strong> (1957, from studies of prisoners of war), <strong>Robert Lifton's eight criteria of thought reform</strong> (1961), and <strong>Steven Hassan's BITE model</strong> (control of Behavior, Information, Thought and Emotion). Evan Stark's work on <strong>coercive control</strong> applies the same ideas to abusive relationships.</p>
+</div>
+<div class="card flag">
+<span class="eyebrow">Red flags that it's past influence</span>
+<ul>
+<li>You hide things from friends or family to avoid arguments about this person or group.</li>
+<li>Your questions are treated as disloyalty, weakness or an attack.</li>
+<li>You feel you would lose everything (relationships, income, identity) if you left.</li>
+<li>Rules keep changing, and you are always slightly in the wrong.</li>
+<li>You often feel relief when they're pleased and dread when they're not.</li>
+</ul>
+</div>
+<div class="card defense">
+<span class="eyebrow">Defense</span>
+<ul>
+<li>Keep at least two close relationships fully outside any group, job or partner.</li>
+<li>Keep your own money, documents and passwords under your control.</li>
+<li>Write down what's happening with dates. Control works partly by making you doubt your memory.</li>
+<li>Ask an outsider you trust: "If a friend described this to you, what would you say?"</li>
+<li>If you feel unsafe, reach out to a domestic abuse or cult-recovery organization. Leaving a controlling situation is often safest with planning and support.</li>
+</ul>
+</div>
+<div class="check"><h4>Self-check</h4>
+<details><summary>Why does unpredictable warmth bond people more strongly than steady kindness?</summary><p>Intermittent reward keeps the brain hunting for the next good moment, the same mechanism that makes gambling compulsive. The bad moments make the good ones feel huge.</p></details>
+<details><summary>What does isolation achieve for a controller?</summary><p>It removes outside reality checks, so the controller's version of events becomes the only one, and it increases dependency.</p></details>
+</div>
+<label class="mark"><input type="checkbox" id="done-m9"> Mark module 09 complete</label>
+</section>
+
+<!-- 10 -->
+<section class="mod" id="m10" data-title="Suggestibility and trance">
+<span class="eyebrow">Module 10</span>
+<h2 class="t">Suggestibility and everyday trance</h2>
+<p>The Profiler covers hypnosis in depth. Strip away the theatrical image and the point is practical: people become more open to suggestion in certain states, and those states happen all day long, not just on stage.</p>
+<h3>States that raise suggestibility</h3>
+<ul>
+<li><strong>Narrowed focus:</strong> scrolling, watching a gripping speaker, a rally, a long video.</li>
+<li><strong>Confusion and overload:</strong> fast talk, complex terms, too many options. The mind grabs the first clear instruction.</li>
+<li><strong>Repetition and rhythm:</strong> chants, slogans, music, the same message from many directions.</li>
+<li><strong>Fatigue and hunger:</strong> late-night decisions, long high-pressure meetings.</li>
+<li><strong>Strong emotion:</strong> see FATE in Module 01.</li>
+<li><strong>Trust in the source:</strong> we lower our guard with people we've already accepted as safe.</li>
+</ul>
+<div class="card flag">
+<span class="eyebrow">Watch for</span>
+<p>A rush of confusion followed immediately by one simple, clear instruction ("Just sign here and we'll sort the rest"). That pattern is a classic way to get compliance.</p>
+</div>
+<div class="card defense">
+<span class="eyebrow">Defense: break the state</span>
+<ul>
+<li>Change your physical state: stand up, walk, drink water, leave the room.</li>
+<li>Ask them to repeat it slowly in plain words. Confusion techniques fall apart when explained simply.</li>
+<li>Set rules for yourself in advance: no big purchases or commitments after 10 p.m., hungry, or in the same meeting as the pitch.</li>
+<li>Limit endless feeds. They're built to hold narrowed focus.</li>
+</ul>
+</div>
+<div class="check"><h4>Self-check</h4>
+<details><summary>Why does a timeshare presentation often run for hours?</summary><p>Fatigue, repetition and investment of time all raise suggestibility and make "yes" feel like the way out.</p></details>
+</div>
+<label class="mark"><input type="checkbox" id="done-m10"> Mark module 10 complete</label>
+</section>
+
+<!-- 11 -->
+<section class="mod" id="m11" data-title="Defense playbook and drills">
+<span class="eyebrow">Module 11</span>
+<h2 class="t">The defense playbook and scenario drills</h2>
+<h3>The pause protocol</h3>
+<p>Almost every technique in this course depends on speed. Your strongest defense is a habit you run whenever you feel pressured:</p>
+<ol>
+<li><strong>Stop.</strong> Decide nothing in the moment. "I don't make decisions on the spot."</li>
+<li><strong>Name it.</strong> Which levers are firing? Focus, Authority, Tribe, Emotion? Which of my top needs is being fed?</li>
+<li><strong>Find the frame.</strong> What context am I being told I'm in? What if it's false?</li>
+<li><strong>Verify independently.</strong> Use a channel you choose: an official number, a friend, a written contract.</li>
+<li><strong>Decide later, in your own state.</strong> Rested, fed, away from the person.</li>
+</ol>
+<h3>Universal red flags</h3>
+<div class="grid2">
+<div class="tile"><b>Urgency</b><span>Now or never. Real opportunities and real authorities can almost always wait a day.</span></div>
+<div class="tile"><b>Secrecy</b><span>"Don't tell anyone." Isolation dressed up as trust.</span></div>
+<div class="tile"><b>Special status</b><span>You're chosen, rare, the only one. Feeds Significance.</span></div>
+<div class="tile"><b>No exit</b><span>Questions punished, leaving costly, rules shifting.</span></div>
+</div>
+<h3>Scenario drills</h3>
+<p>Read each, decide what's happening and what you'd do, then open the answer.</p>
+<div class="check"><h4>Drill set</h4>
+<details><summary>1. A "bank fraud officer" calls, knows your name and last four card digits, says your account is being drained right now, and asks you to move money to a "safe account".</summary><p>Focus (sudden threat), Authority (title, calm, partial real data), Emotion (fear), urgency. Real banks never ask you to move money to protect it. Hang up and call the number on your card.</p></details>
+<details><summary>2. A new friend from a wellness group says, "You're so much more awake than your family. They'll try to hold you back, so maybe don't tell them about the retreat."</summary><p>Labeling, feeding Intelligence and Significance, Tribe ("us awake people"), and the start of isolation through secrecy. Tell your family, and look the group up independently.</p></details>
+<details><summary>3. A salesperson: "Most smart buyers go with the premium package. Do you want it delivered Tuesday or Thursday?"</summary><p>Conformity plus flattery (Intelligence), then a false choice. Answer: "I haven't decided to buy. Send me the written quote."</p></details>
+<details><summary>4. Your manager praises you lavishly one week and ignores you the next, then says only they can protect you from layoffs if you keep working weekends.</summary><p>Intermittent reward, fear then relief, dependency. Document hours and conversations, talk to people outside the team, and check your actual job security through HR or your contract.</p></details>
+<details><summary>5. At a bar, someone fascinating asks lots of questions, shares a "secret" about themself, then asks what street you grew up on and your first pet's name, "just for fun".</summary><p>Quid pro quo plus elicitation of classic security-question answers. Keep it vague or change the subject, and review where you use those answers.</p></details>
+<details><summary>6. An online influencer says, "The mainstream doesn't want you to see this. Real thinkers share it before it gets taken down."</summary><p>Deviance pitch, Tribe ("real thinkers"), urgency and loaded words. Check the original source before sharing; the pressure to share fast is the tell.</p></details>
+</div>
+<h3>Keep learning</h3>
+<ul class="src">
+<li>Robert Cialdini, <em>Influence</em>: the research base for authority, social proof, commitment and reciprocity</li>
+<li>Steven Hassan, <em>Combating Cult Mind Control</em> (BITE model)</li>
+<li>Robert Lifton, <em>Thought Reform and the Psychology of Totalism</em></li>
+<li>Evan Stark, <em>Coercive Control</em></li>
+<li>Timothy Levine, <em>Duped</em>: what deception research really shows</li>
+</ul>
+<label class="mark"><input type="checkbox" id="done-m11"> Mark module 11 complete</label>
+</section>
+
+<p class="src" style="margin-top:32px">A study course summarizing publicly available teaching for self-protection. It doesn't replace the original source material, and it isn't professional, legal or clinical advice.</p>
+<p style="font:10px/1.4 var(--mono);color:var(--muted);opacity:.7;margin-top:6px">Frameworks adapted from the published work of Chase Hughes.</p>
+</main>
+</div>
+
+<script>
+(function(){
+  var store={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+  var mods=[].slice.call(document.querySelectorAll('section.mod'));
+  var nav=document.getElementById('navlist'), jump=document.getElementById('jump');
+  mods.forEach(function(s,i){
+    var li=document.createElement('li'); li.id='nav-'+s.id;
+    li.innerHTML='<a href="#'+s.id+'"><span class="n">'+String(i).padStart(2,'0')+'</span><span>'+s.dataset.title+'</span></a>';
+    nav.appendChild(li);
+    var o=document.createElement('option'); o.value=s.id; o.textContent=String(i).padStart(2,'0')+'  '+s.dataset.title; jump.appendChild(o);
+  });
+  jump.addEventListener('change',function(){document.getElementById(jump.value).scrollIntoView()});
+  var boxes=[].slice.call(document.querySelectorAll('.mark input'));
+  function refresh(){
+    var n=0; boxes.forEach(function(b){var m=b.id.replace('done-','');var li=document.getElementById('nav-'+m);if(li)li.classList.toggle('done',b.checked);if(b.checked)n++;});
+    document.getElementById('progText').textContent=n+' of '+boxes.length+' complete';
+    document.getElementById('progBar').style.width=(100*n/boxes.length)+'%';
+  }
+  boxes.forEach(function(b){b.checked=store.get('idm-'+b.id)==='1';b.addEventListener('change',function(){store.set('idm-'+b.id,b.checked?'1':'0');refresh();});});
+  refresh();
+
+  var needLines={
+    Significance:'"You\'re the only one who can do this." Exclusive titles, inner circles, being singled out as special.',
+    Approval:'Praise that switches on and off. You end up working to win back approval that was withdrawn on purpose.',
+    Acceptance:'Instant warmth from a group, then quiet hints you could be left out if you don\'t go along.',
+    Intelligence:'"Someone as sharp as you can see why this makes sense." Backing out then feels like admitting you were fooled.',
+    Pity:'Someone who seems to be the only person who truly understands your hardships, and becomes the one you rely on.',
+    Strength:'Dares and challenges: "Are you brave enough?" Saying no gets framed as weakness.'
+  };
+  var decLines={
+    Deviance:'"They don\'t want you to know this." Anything framed as rebellion or secret knowledge. Ask who profits from your feeling like a rebel.',
+    Novelty:'"Brand new, be first." Ask what the track record is, and wait a month.',
+    Social:'"Imagine what people will think." Ask whether you\'d still want it if nobody ever saw it.',
+    Conformity:'"Everyone like you already switched." Ask for evidence, and remember crowds get scammed together.',
+    Investment:'"It pays for itself." Ask for the numbers in writing and run them yourself.',
+    Necessity:'"You\'ll need this anyway." Ask whether you need it now, and whether there\'s a cheaper way to meet the need.'
+  };
+  var needBoxes=[].slice.call(document.querySelectorAll('input[name=need]'));
+  function showNeeds(){
+    var picked=needBoxes.filter(function(b){return b.checked}).map(function(b){return b.value});
+    needBoxes.forEach(function(b){b.disabled=!b.checked&&picked.length>=2});
+    var out=document.getElementById('needsOut');
+    if(!picked.length){out.innerHTML='<span class="eyebrow">Your weak doors</span><p>Pick up to two needs above to see the lines that would work best on you.</p>';return;}
+    out.innerHTML='<span class="eyebrow">Your weak doors</span><ul>'+picked.map(function(p){return '<li><strong>'+p+':</strong> '+needLines[p]+'</li>'}).join('')+'</ul><p>When you notice one of these feeling unusually good, treat that as a reason to slow down.</p>';
+  }
+  var savedN=(store.get('idm-needs')||'').split(',');
+  needBoxes.forEach(function(b){b.checked=savedN.indexOf(b.value)>-1;b.addEventListener('change',function(){store.set('idm-needs',needBoxes.filter(function(x){return x.checked}).map(function(x){return x.value}).join(','));showNeeds();});});
+  showNeeds();
+  var decs=[].slice.call(document.querySelectorAll('input[name=dec]'));
+  function showDec(){
+    var d=decs.filter(function(x){return x.checked})[0];
+    if(d)document.getElementById('decOut').innerHTML='<span class="eyebrow">Your pitch to watch for</span><p><strong>'+d.value+':</strong> '+decLines[d.value]+'</p>';
+  }
+  var savedD=store.get('idm-dec');
+  decs.forEach(function(x){x.checked=x.value===savedD;x.addEventListener('change',function(){store.set('idm-dec',x.value);showDec();});});
+  showDec();
+})();
+</script>
+
+</body>
+</html>
